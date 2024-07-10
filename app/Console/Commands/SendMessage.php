@@ -12,7 +12,7 @@ class SendMessage extends Command
      *
      * @var string
      */
-    protected $signature = 'send:txt';
+    protected $signature = 'send:txt {texto?}';
 
     /**
      * The console command description.
@@ -26,7 +26,14 @@ class SendMessage extends Command
      */
     public function handle()
     {
+        // Manda un evento con el texto de la consola
+
         echo "Mensaje enviado desde consola\n";
-        event(new TestEvent('Mensaje enviado desde consola'));
+
+        if($this->argument('texto') == null){
+            event(new TestEvent("Probando el envío de mensajes por la consola"));
+            return;
+        }
+        event(new TestEvent($this->argument('texto')));
     }
 }

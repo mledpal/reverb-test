@@ -14,17 +14,6 @@ window.Echo = new Echo({
 });
 
 window.Echo.channel("chat").listen(".chat.event", (event) => {
-    console.log("Evento : ",event);
+    document.getElementById("chat").innerHTML = `<div>${event.texto}</div>`;
 });
 
-window.Echo.channel("chat").listen(".pusher:suscribe", (event) => {
-    console.log("Evento : ", event);
-});
-
-window.Echo.channel("chat").listen("pusher:suscribe", (event) => {
-    console.log("Evento : ", event);
-});
-
-window.Echo.channel("chat").listen("TestEvent", (texto) => {
-    console.log("Evento : ", texto);
-});

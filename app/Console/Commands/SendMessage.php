@@ -30,7 +30,7 @@ class SendMessage extends Command
 
         echo "Mensaje enviado desde consola\n";
 
-        if($this->argument('texto') == null){
+        if ($this->argument('texto') == null) {
             event(new TestEvent("Probando el envío de mensajes por la consola"));
             return;
         }

@@ -34,9 +34,13 @@ return [
             'hostname' => env('REVERB_HOST'),
             'options' => [
                 'tls' => [
-                    'REVERB_TLS_CERT' => 'D:/Utiles/Laragon/etc/ssl/laragon.crt',
-                    'REVERB_TLS_KEY' => 'D:/Utiles/Laragon/etc/ssl/laragon.key',
+                    'local_cert' => env('REVERB_SSL_LOCAL_CERT'),
+                    'verify_peer' => false,
                 ],
+            ],
+            'scaling' => [
+                'enabled' => env('REVERB_SCALING_ENABLED', false),
+                'channel' => env('REVERB_SCALING_CHANNEL', 'reverb'),
             ],
             'max_request_size' => env('REVERB_MAX_REQUEST_SIZE', 10_000),
             'scaling' => [

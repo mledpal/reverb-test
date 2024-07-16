@@ -14,6 +14,7 @@ window.Echo = new Echo({
 });
 
 window.Echo.channel("chat").listen(".chat.event", (event) => {
+    console.log(event.texto);
     document.getElementById("chat").innerHTML = `<div>${event.texto}</div>`;
 });
 
